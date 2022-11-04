@@ -1,0 +1,8 @@
+﻿label {
+    display: block;
+}
+
+.mensagem-erro {
+    color: #d02020;
+    font-weight: bold;
+}
