@@ -34,6 +34,22 @@ namespace Login
 
                     usuario.Senha = senhaCriptografada;
 
+                    //Usuario ativo
+                    var user = (Usuario)Session["user"];
+                    if (user != null)
+                    {
+                        if (user.GetTipoUsuario().Descricao == "Admin")
+                        {
+                            //Pode cadastrar admin
+                            //usuario.TipoUsuarioId = user.TipoUsuarioId;
+                        }
+                    }
+                    else
+                    {
+                        //Usuario não logado
+                        var tipo = TipoUsuarioDAO.ObterTipo("Cliente");
+                        usuario.TipoUsuarioId = tipo.IdTipoUsuario;
+                    }
                     UsuarioDAO.CadastrarUsuario(usuario);
 
                     LimparDados();

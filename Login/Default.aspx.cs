@@ -26,9 +26,7 @@ namespace Login
 
             if (user != null)
             {
-                var senhaCriptografada =
-                    FormsAuthentication.
-                        HashPasswordForStoringInConfigFile(senha, "SHA1");
+                var senhaCriptografada = FormsAuthentication.HashPasswordForStoringInConfigFile(senha, "SHA1");
                 
                 if (user.Senha == senhaCriptografada)
                 {
@@ -41,7 +39,17 @@ namespace Login
 
                     LogAcessoDAO.CadastrarLogAcesso(log);
 
-                    Response.Redirect("~/Admin/Default.aspx");
+                    var tipo = user.GetTipoUsuario().Descricao;
+                    if (tipo == "Admin")
+                    {
+                        Session["User"] = user;
+                        Response.Redirect("~/Adm/Home");
+                    }
+                    else if (tipo == "Cliente")
+                    {
+                        Response.Redirect("~/User");
+                    }
+                   
                 }
             }
 

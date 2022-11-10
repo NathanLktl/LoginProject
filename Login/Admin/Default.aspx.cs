@@ -11,7 +11,28 @@ namespace Login.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                Usuario user =(Usuario)Session["User"];
+                ValidarTipoUsuario(user);
+            }
+        }
 
+        private void ValidarTipoUsuario(Usuario user)
+        {
+            //Verificar se não é nulo
+            //Verificar tipo de usuario, se não admin, redirecionar para area cliente
+            if (user != null)
+            {
+                if (user.GetTipoUsuario().Descricao!="Admin")
+                {
+                    Response.Redirect("~/User");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login");
+            }
         }
     }
 }

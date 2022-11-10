@@ -13,8 +13,18 @@ namespace Login
 
             using(var ctx=new UserDBEntities())
             {
-                tipo = ctx.TipoUsuarios.FirstOrDefault(
-                    x=>x.IdTipoUsuario==tipoUsuarioId.Value);
+                tipo = ctx.TipoUsuarios.FirstOrDefault(x=>x.IdTipoUsuario==tipoUsuarioId.Value);
+            }
+            return tipo;
+        }
+
+        internal static TipoUsuario ObterTipo(string v)
+        {
+            TipoUsuario tipo = null;
+
+            using (var ctx = new UserDBEntities())
+            {
+                tipo = ctx.TipoUsuarios.FirstOrDefault(x => x.Descricao == v);
             }
             return tipo;
         }
