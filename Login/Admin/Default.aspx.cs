@@ -34,5 +34,18 @@ namespace Login.Admin
                 Response.Redirect("~/Login");
             }
         }
+
+        protected void LoginStatus1_LoggedOut(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            var log = (LogAcesso)Session["Log"];
+
+            if (log != null)
+            {
+                var ultimoAcesso = DateTime.Now;
+                log.DataHoraLogoff = ultimoAcesso;
+                LogAcessoDAO.AtualizarLogAcesso(log);
+            }
+        }
     }
 }

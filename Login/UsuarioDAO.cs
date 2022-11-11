@@ -10,9 +10,7 @@ namespace Login
             Usuario user = null;
             using (var ctx = new UserDBEntities())
             {
-                user = ctx.Usuarios.FirstOrDefault(
-                        x => x.Login == login
-                    );
+                user = ctx.Usuarios.FirstOrDefault(x => x.Login == login);
             }
 
             return user;

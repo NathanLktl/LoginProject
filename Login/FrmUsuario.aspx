@@ -8,8 +8,11 @@
     <title></title>
 </head>
 <body>
-    <h1>Cadastro de usuário</h1>
     <form id="form1" runat="server">
+        <div class="logof">
+           <asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="Entrar"/>
+        </div>
+    <h1>Cadastro de usuário</h1>
         <div>
             <fieldset>
 
@@ -19,35 +22,19 @@
 
                 <p>
                     <label>Login:</label>
-                    <asp:TextBox 
-                        runat="server" 
-                        id="txtLogin"
-                        required
-                        />
+                    <asp:TextBox runat="server" id="txtLogin" required/>
                 </p>
 
                 <p>
                     <label>Senha:</label>
-                    <asp:TextBox 
-                        runat="server" 
-                        id="txtSenha" 
-                        TextMode="Password"
-                        required
-                        />
+                    <asp:TextBox runat="server" id="txtSenha" TextMode="Password" required/>
                 </p>
                 <p>
-                    <asp:Button 
-                        Text="Cadastrar" 
-                        runat="server" 
-                        id="btnCadastrar"
-                        OnClick="btnCadastrar_Click"
-                        />
+                    <asp:Button Text="Cadastrar" runat="server" id="btnCadastrar" OnClick="btnCadastrar_Click"/>
                 </p>
                 <p>
                     <label id="lblMensagem" runat="server"></label>
                 </p>
-
-
 
             </fieldset>
         </div>

@@ -15,6 +15,7 @@ namespace Login
 
         }
 
+        [Obsolete]
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             var login = txtUsuario.Text;
@@ -40,6 +41,7 @@ namespace Login
                     LogAcessoDAO.CadastrarLogAcesso(log);
 
                     var tipo = user.GetTipoUsuario().Descricao;
+
                     if (tipo == "Admin")
                     {
                         Session["User"] = user;
@@ -49,7 +51,6 @@ namespace Login
                     {
                         Response.Redirect("~/User");
                     }
-                   
                 }
             }
 

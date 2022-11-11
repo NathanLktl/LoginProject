@@ -17,6 +17,7 @@ namespace Login
         public int IdLogAcesso { get; set; }
         public int UsuarioId { get; set; }
         public System.DateTime DataHoraAcesso { get; set; }
+        public Nullable<System.DateTime> DataHoraLogoff { get; set; }
     
         public virtual Usuario Usuario { get; set; }
     }

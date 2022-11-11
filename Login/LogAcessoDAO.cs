@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Login
 {
@@ -19,6 +20,16 @@ namespace Login
 
             }
 
+        }
+
+        internal static void AtualizarLogAcesso(LogAcesso log)
+        {
+            using(var ctx=new UserDBEntities())
+            {
+                var logVelho = ctx.LogAcessoes.FirstOrDefault(x=>x.IdLogAcesso==log.IdLogAcesso);
+                logVelho.DataHoraLogoff = log.DataHoraLogoff;
+                ctx.SaveChanges();
+            }
         }
     }
 }

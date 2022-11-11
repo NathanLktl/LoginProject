@@ -28,9 +28,7 @@ namespace Login
                     Usuario usuario = new Usuario();
                     usuario.Login = login;
 
-                    var senhaCriptografada =
-                        FormsAuthentication.
-                            HashPasswordForStoringInConfigFile(pass, "SHA1");
+                    var senhaCriptografada = FormsAuthentication. HashPasswordForStoringInConfigFile(pass, "SHA1");
 
                     usuario.Senha = senhaCriptografada;
 
@@ -43,7 +41,12 @@ namespace Login
                             //Pode cadastrar admin
                             //usuario.TipoUsuarioId = user.TipoUsuarioId;
                         }
+                        else
+                        {
+                            DefinirTipoUsuario(usuario);
+                        }
                     }
+                    
                     else
                     {
                         //Usuario não logado
@@ -64,6 +67,12 @@ namespace Login
             {
                 MostrarMensagem(ex.Message);
             }
+        }
+
+        private void DefinirTipoUsuario(Usuario usuario)
+        {
+            var tipo = TipoUsuarioDAO.ObterTipo("Cliente");
+            usuario.TipoUsuarioId = tipo.IdTipoUsuario;
         }
 
         private void LimparDados()

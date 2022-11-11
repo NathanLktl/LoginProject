@@ -12,6 +12,7 @@
           <Property Name="IdLogAcesso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UsuarioId" Type="int" Nullable="false" />
           <Property Name="DataHoraAcesso" Type="datetime" Nullable="false" />
+          <Property Name="DataHoraLogoff" Type="datetime" />
         </EntityType>
         <EntityType Name="TipoUsuario">
           <Key>
@@ -102,6 +103,7 @@
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
           <Property Name="DataHoraAcesso" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Usuario" Relationship="UserDBModel.FK_LogAcesso_Usuario" FromRole="LogAcesso" ToRole="Usuario" />
+          <Property Name="DataHoraLogoff" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_LogAcesso_Usuario">
           <End Type="UserDBModel.Usuario" Role="Usuario" Multiplicity="1" />
@@ -154,6 +156,7 @@
           <EntitySetMapping Name="LogAcessoes">
             <EntityTypeMapping TypeName="UserDBModel.LogAcesso">
               <MappingFragment StoreEntitySet="LogAcesso">
+                <ScalarProperty Name="DataHoraLogoff" ColumnName="DataHoraLogoff" />
                 <ScalarProperty Name="DataHoraAcesso" ColumnName="DataHoraAcesso" />
                 <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
                 <ScalarProperty Name="IdLogAcesso" ColumnName="IdLogAcesso" />

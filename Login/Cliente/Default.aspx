@@ -17,7 +17,7 @@
 
     <form id="form1" runat="server">
         <div class="logof">
-            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+            <asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggedOut="LoginStatus1_LoggedOut" />
         </div>
     </form>
 </body>
