@@ -37,15 +37,14 @@ namespace Login.Admin
 
         protected void LoginStatus1_LoggedOut(object sender, EventArgs e)
         {
+            AtualizarUltimoAcesso();
+        }
+
+        public void AtualizarUltimoAcesso()
+        {
             Session["user"] = null;
             var log = (LogAcesso)Session["Log"];
-
-            if (log != null)
-            {
-                var ultimoAcesso = DateTime.Now;
-                log.DataHoraLogoff = ultimoAcesso;
-                LogAcessoDAO.AtualizarLogAcesso(log);
-            }
+            Util.AtualizarUltimoAcesso(log);
         }
     }
 }

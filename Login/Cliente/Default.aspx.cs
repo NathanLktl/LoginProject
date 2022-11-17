@@ -17,6 +17,9 @@ namespace Login.Cliente
         protected void LoginStatus1_LoggedOut(object sender, EventArgs e)
         {
             Session["user"] = null;
+            var log = (LogAcesso)Session["Log"];
+
+            Util.AtualizarUltimoAcesso(log);
         }
     }
 }

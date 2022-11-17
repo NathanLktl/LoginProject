@@ -83,6 +83,7 @@
     <Content Include="Cliente\Default.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FrmUsuario.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -125,6 +126,9 @@
     <Compile Include="FrmUsuario.aspx.designer.cs">
       <DependentUpon>FrmUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,6 +165,7 @@
     </Compile>
     <Compile Include="UsuarioDAO.cs" />
     <Compile Include="UsuarioPOCO.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model.edmx">

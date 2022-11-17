@@ -31,6 +31,10 @@
                 <label id="lblMensagem" class="mensagem-erro" runat="server"></label>
             </p>
             <a href="~/Usuario" runat="server">Cadastre-se</a>
+
+            <p>
+                <label id="UsuariosOnline" runat="server"></label>
+            </p>
         </div>
     </form>
 </body>
