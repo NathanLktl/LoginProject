@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Login.Admin
 {
@@ -15,6 +11,9 @@ namespace Login.Admin
             {
                 Usuario user =(Usuario)Session["User"];
                 ValidarTipoUsuario(user);
+
+                //var Caminho=MapPath("~/upload")
+                ImgUser.Src = "../upload/" + user.IdUsuario + ".png";
             }
         }
 
@@ -45,6 +44,17 @@ namespace Login.Admin
             Session["user"] = null;
             var log = (LogAcesso)Session["Log"];
             Util.AtualizarUltimoAcesso(log);
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (fuImagem.HasFile)
+            {
+                var Arquivo = fuImagem.PostedFile;
+                var Mapa = MapPath("~/");
+                var Caminho = Mapa = "\\upload\\" + ((Usuario)Session["user"]).IdUsuario + ".png";
+                Arquivo.SaveAs(Caminho);
+            }
         }
     }
 }

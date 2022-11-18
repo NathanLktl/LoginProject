@@ -10,6 +10,8 @@
 <body>
     <h1>Página Administrativa</h1>
 
+    <img src="#" alt="Imagem do Usuario" id="ImgUser" runat="server" />
+
     <h3>Bem-vindo, 
         <asp:LoginName ID="LoginName1" runat="server" />
         !
@@ -19,6 +21,8 @@
         <div class="logof">
             <asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggedOut="LoginStatus1_LoggedOut" />
         </div>
+        <asp:FileUpload ID="fuImagem" runat="server"  AllowMultiple="false"/>
+        <asp:Button Text="upload" runat="server" ID="btnUpload" OnClick="btnUpload_Click" />
     </form>
 </body>
 </html>

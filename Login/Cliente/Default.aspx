@@ -19,6 +19,7 @@
         <div class="logof">
             <asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggedOut="LoginStatus1_LoggedOut" />
         </div>
+        <asp:FileUpload ID="FileUpload1" runat="server" />
     </form>
 </body>
 </html>

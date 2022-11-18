@@ -21,11 +21,7 @@
                 <asp:TextBox runat="server" ID="txtSenha" TextMode="Password"/>
             </p>
             <p>
-                <asp:Button 
-                    Text="Logar" 
-                    runat="server" 
-                    ID="btnLogin" 
-                    OnClick="btnLogin_Click"/>
+                <asp:Button Text="Logar" runat="server" ID="btnLogin" OnClick="btnLogin_Click"/>
             </p>
             <p>
                 <label id="lblMensagem" class="mensagem-erro" runat="server"></label>
